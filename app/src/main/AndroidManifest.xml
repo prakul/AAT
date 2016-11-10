@@ -159,6 +159,16 @@
                   android:authorities="${applicationId}.gpx"
                   android:exported="true">
         </provider>
+
+        //Added for Broadcast theft attack
+        <receiver android:name="ch.bailu.aat.receiver.fakeReceiver" >
+            <intent-filter>
+                <action android:name="net.everythingandroid.smspopup.DONATED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DOCK_EVENT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
